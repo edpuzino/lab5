@@ -29,9 +29,9 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { 
-    var result=a*b;
-    var message=('The product of ' + a + ' and ' + b + ' is ' + result + '.');
-    return[result,message]
+    var result2=a*b;
+    var message=('The product of ' + a + ' and ' + b + ' is ' + result2 + '.');
+    return[result2,message]
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -51,12 +51,14 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
-function sumAndMultiply(a, b, c) { 
-    var sumTotal=a+b+c;
-    var productTotal=a*b*c;
-    var message1=(a + ' and ' + b + ' and ' + c + ' sum to ' + sumTotal + '.');
-    var message2=('The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productTotal + '.');
-    return[sumTotal, productTotal, message1, message2]
+function sumAndMultiply(a, b, c) {  
+    var x = sum(a, b)[0];
+    x=sum(x, c)[0];
+    var y= multiply(a, b)[0];
+    y = multiply(y, c)[0];
+    var message1=(a + ' and ' + b + ' and ' + c + ' sum to ' + x + '.');
+    var message2=('The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + y + '.');
+    return[x, y, message1, message2]
 
 }
 
@@ -76,15 +78,19 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-var testArray = [2, 3, 4]; //eslint-disable-line
+var testArray = [2, 3, 4]; 
 
-function sumArray(sumArr) { //eslint-disable-line
+function sumArray(sumArr) {
+    var x = sum(testArray[0], testArray[1])[0];
+    x=sum(x, testArray[2])[0];
+    var message=(testArray[0] + ',' + testArray[1] + ',' + testArray[2] + ' was passed in as an array of numbers, and ' + x + ' is their sum.');
+    return[x, message]
 
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
